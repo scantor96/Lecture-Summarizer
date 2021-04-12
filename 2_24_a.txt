@@ -1,0 +1,875 @@
+Good evening folks.
+Evening.
+A professor.
+How are you friend.
+I'm alright.
+Awesome pasta so i'm living off of that high right now.
+What what you adding to it.
+All right.
+Make a simple tomato sauce all right you take stuff where you can crush them i thought i put enough in like a small skillet so that it turns into like a nice sauce i got some pasta and very salted water when that's already i just know you put the pasta in the sauce you put a little bit of the pasta water into get that starch up.
+What about parmesan besides got to be pure you know.
+You know mugs waterland.
+You make pizza to.
+What you say you make pizza without sauce or they were to strictly follow know it's super simple i think the thing about pizza sauce is that you have to have sugar in it and what with the sauce so i make it's just.
+Okay my girlfriend's name was italian and and her dad makes makes delicious because i've never seen him specifically for like what i did with this.
+Recipe cherry tomatoes though.
+Yeah it's not going to cook that.
+Gretna.
+Good job.
+Waiting for the rescue people design address.
+You have a new student i don't know name.
+If your on your identify yourself.
+Another name i need to know if she joined us lots of luck.
+But i just showed up today.
+Say it again.
+I hope yeah there you are okay i'm here.
+Stretch out legs you know eat some pasta.
+Given that.
+Any questions anybody wants to be captain what we did last class.
+I did a lot of things i believe basically talked about asr the body and the sequence of words also known as.
+We discussed how the data is or how the model is trained for that and you know it's not easy for me to explain it includes a lot of stuff that's still processing my brain but we talked about the acoustic model being the function that takes features and produces the phone state and disease.
+You bury myself very nice job.
+Don't be shy i don't know if i can add to it because it's such a good summarizer but i do have this but i do have a question something that i was wondering about last night that a lot i mean last week that the process seems to begin with that recorded speech that is processed and then.
+Reversed where is the technology in terms of completely synthetic phonemes constructed from scratch.
+Okay so yes the state-of-the-art system.
+Obviously you don't understand that transcribing large amounts of audio..
+And quite a lot of stuff i just to give you an idea cost about.
+$150 an hour for an hour of audio.
+Wow where can i get this job i'm just curious.
+Mike by-the-minute transcription and is not enjoyable and i was certainly not making $100 an hour.
+Typically a auto audio takes about 4 hours of conception time.
+Happening where we take unsupervised data just draw audio without any transcription.
+Independent to the supervised models that retrain.
+9.
+You know to embellish tomorrow rain for tomorrow.
+That is more recent work on data augmentation where we clean these dnn models and we'll get to that sometime.
+And return the process into a generator.
+Step data.
+And that data even though it's not.
+It's not real in the sense that knows no human being has spoken..
+And still.
+Subtle colors the gaps of the supervised model.
+Not a lot of super lice.
+I see i see.
+Maybe it's a long answer but no no no no i'm just curious accuracy.
+You certainly can use that one to 2% and also because i'm curious is there a technology that exist currently where the computer will just listen to the audio and produce ipa.
+Ipa.
+As part of the recording that we talked about that's part of the transcription two words one step as you saw it was to get the secret.
+Not right right exactly now it so happens that.
+The practical systems design their own alphabet for representation.
+And so the second one example we have a head body tail for in a one or two or three.
+Which is a natural when you think about human speech we don't.
+Interior this possible to generate ipa.
+Yeah i guess i was just thinking about second language learners using a different writing system like chinese or russian or arabic for us that if there was something that would listen to audio where they talk too fast for a learner to understand it but wouldn't necessarily transcribe it into the written target language do with there was like an intermediate stop i was just wondering if there was.
+Octo graphically similar to the phonetic pronunciation in english.
+In many different sequence.
+No.
+Later.
+Did any other questions pomeranz recaps.
+Lastpass.
+Anybody.
+Nana no no issues at all.
+Great teacher.
+Just don't make don't just don't give his test again.
+So.
+Yeah before i start or maybe after the break we can come back and discuss that so let me go ahead and talk about what we want to do today.
+Now. you have to take the cdl course.
+Sign language modeling.
+Yes i love you.
+Yeah.
+Probably just to keep talkin out until we connect with what we have seen.
+The sequence of words.
+And this and the question is how do you determine which sequence of words is.
+More fluent than other.
+So.
+What we need to do and also have taken the line from erlanger conditioning mystics plus.
+Jumping.
+And help me out what is the language model.
+Isn't it i'm sorry i mean i was just going to say that.
+Because it can give us information.
+We took it last semester and we discussed chinese food versus british food yeah so this the first time i love chinese food occurred more frequently than i like british food so it was predicted that chinese food is preferred over british food so that could be one information we can extract from this kind of probability.
+Okay what else can you do with it.
+No i was just going to say i think it allows you to predict more accurately what word is being said especially when you're dealing with like maybe homophones or something like that if you say you know she led me to the classroom you know you're not talkin about necessarily lead the.
+The metal you know so things like that i can get those probabilities also allow us especially when you're if you're working with like part of speech tags and stuff you can make assumptions about what is being really spoken about.
+Righto the sentence could be you know what one to world.
+991 to use this probability to see which is more likely in this language lights pizza.
+Discount help with the auto correction system that we have in our devices when you type something the next word is usually suggested and it's most of the time the word that you would tend to type.
+More likely to happen in certain contacts in speech recognition.
+Lackland pronunciation dictionary.
+Night we don't know which one to produce if you didn't know that language model by sing us to go to world 1.
+Mine so essentially that's the idea behind language given that context i can give a probability distribution that can combine with the acoustic evidence that we have.
+Acoustic evidence because well we went through right.
+So given that how would you go about building a language model.
+You have to tokenize all the words and then you have to do a frequency count for all of them and then.
+From there you can build.
+Basically whatever you want off of the probabilities.
+Awesome so let's talk with that right so i need a probability of this sentence which is essentially the sequence of words like that so what you're saying is that i'm going to.
+The number of times.
+The sequence of the earth in my car purse and if there have been in sentences / n.
+Okay anybody sees any issue around this instead of.
+I think if i remember correctly the way the formula work do you want to look at by graham probabilities or maybe trigram you could go you can go far out but i think the further out it doesn't really it starts to not really make that big of a difference so like by grounds or trigrams and then multiply those like for example if you want to like measure the probability of a sentence you would do all the bike runs and then multiply them all together and get.
+The probability that way and there might there might be something else i'm missing but.
+Help me understand how we get there.
+It's like the sequence.
+The probability the sequence times the probability of the word before it divided by the amount of words right is that what you're asking.
+Sane.
+Me likes pizza.
+Is more frequent than pizza like smitty.
+So what i'm going to do is to collect some milk arkansas sentences.
+I think i've gave you a car place at the beginning of the flies.
+Of course a bunch of sentences.
+Are the number of times people likes marrying that and divided by the number of.
+Not a problem.
+If you haven't realized yet.
+Is that the frequency with which such long strings appear in a conference is going to be diminishing list mall.
+A sentence size increases.
+If suppose i say.
+You know a woman likes pizza versus the woman from new york.
+Wearing a hat.
+Arriving on tuesday likes pizza.
+This pasito.
+The most of the sentences i'm going to get zeros.
+So the question is how do i get non-zero probability.
+Mike's pizza.
+Okay and this happens to be zeroing my phone.
+And pizza.
+Like smitty.
+This also happens to be zero.
+In my account.
+What i do if i just add one to it.
+Okay then what happens then.
+This is angel fall nothing is this one.
+Yes i think the way that we approached it last semester was to find the probability of mary likes by itself and then likes and pizza together and then to to combine them to find like total hypothetical probability of those three words occurring in that order.
+I mean this is like a joint probability right one all the and words to happen at the same time.
+That's a joint probability right so what we do is to say about break it up and say well will actually say probability of the word one happening like pizza happening and probability of two given one.
+Nephew saw likes given that the first word what's pizza.
+I am so and so forth the probability of word he given word 1 and vol 2.
+And so forth answer probability of word n given that you have seen a bunch of the previous words.
+Night.
+Straightforward the chain rule in probability.
+That's simply expands a joint event.
+Into a conditional set of events.
+What is a conditional probability conditional because they are simply saying that.
+You know my history has been already given to me what's the likelihood of a particular world wn.
+Do i have a shot at estimating the probability of this right.
+May i have a shot at this i probably have a shorted this you know like some pizza and pizza in marion so far right.
+We haven't changed the problem at all because what is this probability this basically is the frequency of all of these words appearing.
+/ the frequency of the contacts appearing.
+9 that's the probability for that now.
+Obviously you do probability.
+You mean the frequency right.
+So that's where we start making markovian assumption.
+Could you repeat what's on that what's on the bottom.
+That word sequence 1 through n all the n-word appearing.
+9 divided by the frequency of the contacts appearing.
+Oic simply probability of a given b.
+Thank you you know starts getting to be the same old problem and so.
+What we do is that relevant say this.
+Nasty conditional probability sequence wn -1.
+The approximate age.
+To be just the previous card word for example.
+Approximated that way.
+Okay so this is the first order markov model.
+I mean it's not remembering all the and -1 tokens from my history i just conditioner on the just preceding..
+And it's just a modeling choice right this is an approximation.
+I could have approximated it as wn given w n -1 and -2 like.
+I don't forget all of it maybe they'll remember two of the previous one.
+So this you probably have heard it being talked as a bike remodel.
+9th and this being docked as a triangle and model.
+And so the probability of a sentence is just simply the product.
+All the probabilities of.
+Wi.
+Even the thievius were next.
+Okay so this would be our bigram probability.
+I think everybody gets that right now.
+No issues and so you can dump your displacement.
+/ frequency of wme.
+And you have a fair shot at getting it.
+Okay now.
+Naturally some of you have already identified even this if you're not lucky enough can go to zero.
+I'd like to pizza likes.
+May not be a migraine that you have seen before.
+I'm so very anal if you haven't realized our sentence likes.
+Pizza.
+The probability of the earth will become probability of mary.
+Given start of sentence.
+Times probability of likes.
+Given me d.
+And probability of.
+Pizza.
+Given lights.
+Like.
+And then anything else.
+I have a question here can we use them.
+Pos tagging as an indication of a likelihood of one word that can occur before or after the other.
+What else is missing in this.
+Do we need the end of the sentence to yes.
+Because.
+Because.
+What's a moor.
+The sentence is defined by this being a..
+So now you can compute these probabilities.
+Mine everybody gets laughing.
+Okay so going back to last question.
+If suppose i had some notion of tags.
+Night.
+And part of speech tags or some notion of clusters you know that mary is in the name of people pizza isn't in the category and so forth.
+Can i leverage that.
+How would your love bass tab.
+Like if we take the example of day beginning of the sentence and mary we would assume that since it's the beginning of the sentence the chance of the word to be a noun is higher than of it to be a verb.
+Chanel.
+I can say well you know maybe.
+At the beginning of sentence.
+Is not just simply counting beginning of sentence, mary.
+Divided by the frequency of beginning of sentence.
+But i'll try to model a 12.
+Parts of speech.
+Oh.
+Anybody wants to take a guess.
+So i would say as a proper noun proper name at the beginning of the sentence.
+Okay so probably.
+A proper name marie are proper noun i guess.
+And then what.
+A verb usually comes after that.
+By taking a sort of a different route by saying okay ask what's the chance of getting a proper noun.
+Okay so do we need the other like if determinant coming inside of a proper noun.
+Yes or no.
+The word has not been.
+Generator no yeah so then would we need to add the probability of mary being the proper noun exactly okay.
+Given that i am in a proper noun.
+Now that basically says well you know i can get.
+Comedian wants that for our like this or i can go through a part of speech tag proper noun noun whatever and then go to the in two steps.
+Why do you want to do that.
+Anybody.
+When you want to break it this way.
+As opposed to dark estimating probabilities.
+Have to put them as possible options.
+What does a bias.
+Is it easier because you could set up like a list of proper nouns and then just go off in the probability of proper nouns rather than doing.
+Specific names.
+Yes or no think about what does.
+The tide baez what is a gibbous.
+As opposed to directly dealing with words.
+It gives us the parts of speech category that.
+That contains like the umbrella term for all the proper nouns that we have.
+Much more reliably estimated from a car.
+So in case that are particular corpus does not have a sentence that begins with the word marry then we would still would have a probably that wasn't clear oh okay okay.
+Exactly no.
+When you break it up into two steps.
+Methi could be you know in multiple parts of speech in this case is proper noun.
+Could be in another world.
+You can't break it up because i don't know whether.
+Defeats the whole purpose.
+Nice meeting went to the bank to get some flowers or maybe he's banking on john banks on midi i don't know what that means so what we need to do some overall part.
+For that particular word.
+And this this is a question that you would iterate for every word for every token you would iterate through every possible pos tagging calculate every possible combination of pos tags.
+Oster base language model.
+And parts of speech as one kinds of buster's right things in the clusters.
+But you can take any word carpas like the one i distributed with them into xbox wing software fosters.
+Okay so you can get in the benefit of the artist we just talked about.
+Play this is another kind of smoothing if you're in some of you know what smoothing is this another time smoothie.
+General chaos it's a smoothing is about manipulating the frequency phones.
+This is another kind of smoothing with your putting words into a category and using the cluster.
+In this matter.
+Questions.
+Are there any common methods for smoothing aside from.
+Nipples that we all landed this example.
+Oh this is one way of smoothing this morning by the way the black ark.
+Okay that is no right or wrong way many many.
+Smoothing techniques and you will understand why people are taking the course you know you understand why you've been exposed to the advance building only.
+Yeah you seen advance moving right.
+Wedding is all about estimating the probability for an unknown event.
+I haven't seen this word or word combination or bigram try grandmother unicam i haven't seen it so how am i going to assign a probability to it.
+That's basically because of it and someone way to do it is to say okay for every event that i've seen i'm going to bump it up by some number and one happens to be this time but you can add any number.
+As long as you normalize it.
+Okay so far all the observatory and i'm going to pump it up by one and that.
+Probability mass would be distributed for unseen events equally.
+So that's one kind of smoothing then there are smooth things that will say that will take frequency distribution into account that ten words in that have been seen once 15 words that have been seen or maybe last five words that have been seen twice in a three words that have been seen three times and so forth.
+And so we can start doing.
+Victory of the frequency distribution itself.
+They say 10 words are seen ones three words are five words vaccine twice and three words are seen ones x.
+Okay then we can rationalize and say what would the zero number of words being seen here what's that.
+You know.
+Curb look like.
+123 and it's ten 5 and 3 here what would 0 look like.
+You can.
+Formulas that that's one kind of smoothing that's good shooting this morning.
+But you ain't.
+Okay no.
+Nb dnn word of today.
+People don't talk about moving at all.
+Okay because.
+Booting is all aboard estimating things that have not been seen.
+What happens in dnn work.
+Anybody been exposed to it at all.
+Lana del rey.
+Okay so when do i do it's almost 6:15 i need to drop him off and come back we'll talk about dna.
+Give me about 20 minutes.
+I'd like to go on record to say to aza specifically that i did look up a pizza recipe and they do you sugar.
+You're muted.
+I forgot i don't use sugar i don't have sugar at all at home no sugar in my life.
+That's all i wanted to say i'm going to go back to the different recipes for pizza so.
+I'll have you guys figured out how we're going to do the projects like i was asking you before me in terms of the groups in the topics.
+So basically you you choose a topic and.
+He said something about presenting it step-by-step.
+Will give updates on.
+Will we reach with it.
+Okay so like it hot if i have a topic i want to do should i just like posted in the excel sheet like that's what i don't understand like how people.
+Yeah i'll do that.
+Okay thank you.
+Sorry folks. delayed a little bit traffic was bad.
+You back here everybody.
+Okay.
+I lose anyone.
+How is the pasta was great.
+So any questions from the bar.
+We were talking about part of speech tagging which is like the obvious considering its linguistic data is there any other.
+Sort of taggers that would help us in this sort of situation like nish yeah so you know topic modeling is a very common thing you know what happened to be topics.
+Nike sports sun finance and politics.
+Yeah supposed to add topics right.
+And this is a topic.
+1 distribution on a topic is going to be very different.
+So what's the base language model topic-based language model.
+Are you on notes.
+Don't disconnect.
+Thank you isaiah.
+Could you could you use a hidden markov model for something like this or is this not a citizen area which would apply.
+Bye-bye this what do you mean by this the.
+Amex didn't get the directions for this no i was just wondering if there was anything with like probably like with probabilities and dealing with a parts of speech.
+Is in on this one i seen these.
+It's a taxi clans probability is broken down into you know.
+I'm going to be off the tag in public.
+This is hidden markov model.
+Essentially thinking of the data source.
+Okay the source is generating language one word at a time.
+Daiso w on w-2 and sulphur are being generated.
+Okay from that and what we're trying to do a quick question about locations are they counted as separate words or one chunk okay.
+So what we're trying tomorrow is what's the probability of a particular sentence that the source is going to generate.
+And so what we're seeing is going from one state to another.
+And this page is going to be indexed by a particular world w1 w2 w3 and the probability is.
+So.
+Knights of probability of ww1 then i go to the state w-2.
+This is your state generation probability of the source model.
+Two words.
+9 w-2.
+W3.
+W3w for and so forth and so now what is this probability.
+Anybody.
+What's the what's the problem start wanting to given 3 given 2 and 3.
+And we're producing three and they're going to a new state with my history becomes w2w.
+Make sense.
+So this is your pride remodel.
+And this is your bike remodel.
+So you can think about.
+These models are essentially ways in which the source is moving from one state to another and producing words.
+Richness of that state space is worldly by grammar trigram.
+You know refers to.
+Vsquare number of states.
+9 and so if you are happy and remodel.
+Mad anthony's.
+Never bi-weekly and -1 number of state.
+Is it make sense.
+The programs will have for free things in the state and one thing that's produced three things in the statement thing is weird.
+Okay what how do you do we decide that a word is a worth if we talk about compound adjectives with a-for example is that single word or.
+Which choice to make how many elements should be in the state.
+Are the order of me and remodel design.
+Isn't it always based on the previous one or should i do.
+I have three elements in that state right to question is what ingram to use okay.
+What do you think.
+I mean it depends on the data right because the more words we search the more the higher the frequency.
+Do the opposite of course i can give you a.
+9 because you are going to have frequencies in this probability will not be estimated reasonably accurately.
+Knights of the amount of.
+Data will drive you towards a particular.
+Maria complexity.
+Didn't make sense.
+We were sorry gopher. yes just i'm confused about the the the ingram there that we choose like how do we decide that for example if i decide to choose a diagram for a word such as the house for example i will get different results from if i search the white house i don't know.
+So question.
+Repeat that question.
+I mean i'm talking about the what engram to choose been because there are certain words that may like the house it's a very high frequent combination and it can occur anywhere but when you say the white house to get different results because this combination has a different meaning.
+Is much higher than $0.01 to your house.
+Given i don't know whatever.
+Right.
+So this is why time frequency is much higher this delegation.
+You can be marvelous by them frequency now this is my question i know in advance that the. frequency is much higher so does that mean that choosing bigram here is a valid choice or should i move on for a different kind of ben graham.
+So how did he want model such thing.
+Do we want to eat popular popularity and frequency is always in that case based on the sample size but you would have to have some kind of insight into it beforehand wouldn't you.
+Okay to sources one sources using by graham and spewing out words.
+The other stores uses by grams.
+And spews out words.
+Resource model is albino model that sells model is the trigram model you have to choose between one of these.
+What would that process be.
+United nation.
+So are we trying to is our goal accuracy.
+What is a what's a good model.
+What would be a good model in your opinion.
+For the given new sentence let's say i haven't.
+Let's leave that can come back to that i have a source that generates politics.
+Okay sentences with politics in nature and another source that can read sports.
+And for the sake of argument let's remodel.
+Okay now i have a new sentence a sentence that comes from i don't know what street journal.
+I say this is a sentence.
+And i have to pick.
+Which model would be appropriate for that like you know it when i'm doing a speech recognition for example i need the model that says these words are more likely to happen in this domain.
+And that's the whole purpose of our language model to predict what words are likely to happen so that it can consign the acoustic model until 4 please.
+I know that's right so if i give you a sentence.
+And you have to decide which of these two models should i use.
+How would you decide.
+So it's based on context.
+Make some contacts but it would be like for her if you have to take what they would be the bygone four causes of the bike down for sports i was still slide it to the buy ground for politics rather than sports based on the sentence what.
+Background contact knowledge.
+And how do you operationalize that how do you make it.
+See what's a what's the most common words that were i feel like i'm going right back to where i was before i could be wrong or i'm going back to the frequency of books going to show up in that sample economics.
+You're so i can support her argument with another example for example of the word the combination of the two words the wall now in politics it has a high freq higher frequency than years before because of the current reference for that phrase now so if i use a diagram to search for the wool journal have a.
+Good results so.
+That's what you're trying to capture.
+Rental.
+They perplexities a metric that we use to decide how good the 50s.
+Can i give into me.
+Okay so it's supposed mean in english to english definition of perplexity is what.
+What does perplexity mean.
+Confusion.
+We would want the perplexity score to the lower a week if they want the.
+The model to be as like the least amount confuses bop.
+It'll be less confused.
+What does confuse mean the possibilities from a given state the possibilities.
+Are much smaller when there is a better fit in the model.
+I give it was filthy of confusion number of choices that says.
+I need the number of choices that you can get.
+After wi - 1 if it is very narrow in this case like this.
+That means the model is very sure.
+What the next word is likely to be.
+When asked when the model is more confused perplexity.
+And there are many more choices.
+The model is not sure.
+The stronger tomorrow.
+Dolor de perplexity in the bedroom.
+That makes sense.
+So what you were doing is to take well yeah i got two models and one night i'm too and i'm going to ask what's the probability of this sentence under model and one and what's the probability of that sentence and remodel in june.
+And then compare them.
+Okay is it equal greater less than.
+And using problem using a perplexity metric twitches in all probability of all the sentences in a log of this.
+You can compare two models.
+No naka sweet compared to models between two domains.
+You can take any model complexity and ask which is a better fit today.
+Testator.
+I guess obviously it just depends on them.
+That's how you choose which model to pick.
+Okay going back to the question of which how do they make and model complexity.
+Just generally is there any danger to so i guess obviously you're picking.
+You have a lot to ask of you that you want to use the uno.
+The most specific or best model for that is there danger in.
+I guess having like models i have to narrow the focus.
+Well i mean.
+Danger.
+And i have no idea which domain this is going to come from then that would be a better fit.
+Minnesota if my application space this is a test case i have no idea what they are going to speak in sentences.
+Sentences that have no idea then i want a very broad model.
+Okay you might have seen this.
+And what we do is something called interpolation.
+Do i dress at situations.
+Interpolation is basically saying that you know what your w1w iwm.
+I will estimate this.
+Bye.
+Drawing.
+From different domains and mixing them up so probability of wi wi - 1.
+From domain d1.
+Okay like sports.
+Mixed up with.
+Set alarm to 1.
+From a different domain.
+Funded by graham.
+And a third domain maybe politics.
+What does viagra mansurfer.
+Okay so this will become a mixture model.
+Sort of an interpolation model of the same but coming from dr. seuss harper's and wall street journal and sports news and international politics and finance.
+Are you having broad coverage then.
+That makes sense.
+You answered my question you knowing stuff.
+If i know that i'm going to be working on.
+I want to build a model for the dummy.
+I don't want a bra tomorrow.
+But if i don't know which domain it's coming from then i want a broad model in this is one way to build.
+This is sort of what i was meaning to ask but yeah thank you.
+Any questions i have to still come back to martinez question about indian macklemore.
+What is hitting about a hidden markov model.
+So in a market model as we know your transitioning from one state to another and producing essentially.
+Tumblr.
+Observing and we are sitting out there and observing this model generate mary likes pizza john went to the store and sons.
+I told looking at the words you can basically.
+Figure out how the state transitions are happening.
+I know you know beginning of sentence john john likes likes pizza at the states.
+Suppose we say well i actually don't know this.
+I don't know this but i'm looking at the tags coming or do you want t2 t3 and so forth.
+Noun verb.
+Noun.
+Barb.
+I don't know what the underlying state sequence is odd.
+Okay what the system has transition from noun to verb to now.
+And all i can see is john likes.
+Pizza.
+So this is the observable.
+Observe that john likes pizza but the state transition is actually going from noun verb noun.
+No cancel that stand transition is hidden from us.
+Because he observing observable is actually.
+It's in the state that is some probability of generating john.
+Given that i'm in the downstairs.
+Okay that is some probability of generating likes.
+Given that i'm in the lord's day.
+The reason why it's a hidden markov model is this sequence is not known to me ahead of time.
+That's the reason why it's hidden unlike in the language modeling case where i know.
+What state i am in.
+You think you for explaining is the example that i looked at every time i like try to let you know i'm go over hidden markov models are the would like the typical weather example i've seen it a lot where it's like the weather itself is hidden but you know somebody's mood based on the weather so for example 80% of the time that is sunny john is happy so you know that john is happy but now you have to be some the probability of him being happy you have to estimate you have to calculate okay do you think it's sunny and then based on those transitions and.
+Boston generating words transitioning from different states inside the.
+Model model.
+In hidden markov model we actually have something on the noisy channel let's see what this channel does is it kind of stinks that it receives so if it receives.
+The tags example and produces words so what we are seeing is john likes pizza but in reality.
+And corruption happens with some probability like that.
+Okay so this is a very powerful metaphor because this can be applied to language translation for example in reality.
+From the original french sentence.
+And the source was actually generating frank sentences but the 90 channel corrupted and the observer is reading english.
+And translation is all about recovering the.
+So this could be modeled as in newton marco models.
+Dc the connections.
+Any questions here.
+How can we use the head of marco model with diagrams and try and grab it with that.
+That's what i want.
+991 likes pizza i need noun verb noun.
+Okay and so what do we do we say the probability of that is simply the probability of a given tag.
+Names probability of the task sequence / the property.
+Mesa simply.
+Why you know it's basically as x.
+And also be expanded as probability of t given x property of work.
+This could be the first event.
+All this could be the first event.
+Name the answer the joint probability that the same so therefore probability of word given x probability of t given w is the same as property of t times probability of w.
+Knights because we still have the same referring to the same joint event.
+Is this nothing.
+I'm so nice to have the same so therefore what we warned eventually is this.
+This is simply probability of tea times probability of w given t / property of w.
+Night and i asked for the best sex tag sequence.
+Message nancy glenn apply the artmax operator on both sides.
+This does not get influenced so i can erase that does nothing.
+Infecting it.
+It basically is a denominator that is common across all possible comparison so this becomes our.
+Optimization criteria give me the.
+Tag sequence that maximizes this probability.
+Everybody with me unless.
+Same old story right sorry we know this is this is much like sentence.
+Bigram sequences.
+9 what is this pft assembly pr p.m..
+It's like the older and i can call back but it's b of s and we said this is simply.
+A bunch of.
+My cramps so this is product..
+Ti given ti - 1.
+Approximately.
+It makes sense that you know how we did language modeling except now we're dealing with tag sequences instawork sequence.
+And now this this spar which wasn't there before.
+Which is the hidden markov bard once again wouldn't do them are chromosomes in here for the same reasons of spots.
+Just the.
+Probability of being in the states ti and producing the word wi.
+Like i'm in the renowned state and likelihood of producing john versus man versus cat.
+So essentially this is going from state to state.
+Ti - 123 this probability is transition t1 t2 given t1 and t2.
+So this is your hidden markov model and this is your meters from each state that will be wi given m&t one this is wy given and so forth.
+Wi given t3.
+It makes sense.
+So you're sitting in a state and you have a choice of the entire vocabulary.
+What all you can produce you know you are in a blurb stage.
+And there's some probability of producing dog.
+And some probability of producing likes the same probability of producing mary.
+Alligators very small because.
+Okay the same story here.
+Using you know book.
+It's on so far.
+Probabilities differ in if the genre is differs.
+9 because these probabilities will be estimated from some jonra.
+Stagnant part of speech and you can compute these things.
+And you will see that when you go to doctor seuss karpis obviously.
+Doesn't make sense any questions yet.
+This may be a defeat but some of you i don't know.
+You might have seen this in.
+Yelp.
+Okay so.
+That's in all generator models generative models and we talked about.
+Let you know in order of the marvel universe order second order by gram price.
+We talked about.
+And these are all models that can produce language language.
+Okay so these are all ways in which source and the channel.
+Rb model from observer standpoint so this is also called the channel model this is the source model.
+Thanks in our case this is the source model source is generating.
+Tak sequences and this is the channel model because the channel list corrupt windows tech sequences into work sequence.
+Channel source model channel model and again you have full flexibility as to whether you can you want to model a blood by grimes fry grams and grams whatever depending on how much data analyst.
+This happens to be a very weak modeling just takes the current tag and says what's the likelihood of generating down give it the time.
+Let me know when a man given the diagonal.
+Thanks for that that's one assumption that was made another exemption voice on the order of the engrams.
+Essentially because of how we estimate these parameters we had.
+I am because we were you know and that's called a maximum likelihood estimation.
+Maximum likelihood estimation is basically taking the frequency and dividing by the number of samples.
+Amy run into trouble because we get smoothing issues.
+So.
+The one moved on into discriminative models.
+Rain tomorrow if you realize when i.
+What we have at after this this.
+This is a quantity accuracy.
+9th wonder to say about you know just give me the likelihood of attack sequence.
+And then compare all of the tack sequences for this word sequence but what did we do we need the base transformation.
+I made it into the more like a hidden markov model source in channel.
+But what if we estimate this directly.
+Without doing the transformation.
+Like so.
+And this is the confirmation that redid vfw.
+Is that right.
+What if i don't do the transformation.
+Okay well i had the source model and a channel model and all of that but you directly and.
+Estimate..
+And that leads to watercolors discriminative.
+Okay so what does this mean i want to i want to say what is the probability of the sequence do you want to p.m..
+Human my sequence word want to order.
+And this applies even language models by the way.
+This is.
+We.
+What did we do we actually do that change oil on that and we try to open up the probabilities and went about estimating it.
+Are not doing that estimating this quantity.
+On this wondering tagging.
+How would we do that.
+So one way to do that for example in this case features.
+It would have features features that simply is my.
+Is my left word.
+Equals the.
+Is my right word.
+Equal. for example.
+Okay.
+Is.
+My left word.
+I don't know if capitalized word uppercase word.
+Okay so you didn't and you murdered such features.
+Right person saying that valentino the beginning of the word cannot be a verb.
+Unless it's imperative.
+So you can include all that linguistic knowledge is a bunch of features.
+9 everybody gets that mean on.
+I think we would bring to the house example if you were trying to predictive value at the house the price of the house.
+What kind of pictures would you use location and how many bedrooms are there and what's the school district like.
+Are with me.
+Can we assign weights for this features here.
+Exactly how the nunning problem become can i assign weights for these features.
+Okay.
+And take us some of those.
+Anne calder.
+Some notion of ascorbate probability.
+Night.
+I'll take the sum of the weights of these features.
+Come up with some sort of school.
+Note that this will not be a 01.
+Top number 95 150,000.
+This is a waiter combination of the features.
+I need to bring it down to the zero one skin.
+So a bunch of features that are sung together.
+Is there is a function.
+Okay which looks like this.
+9 this function when i take the one by one plus e to the x.
+Brings everything into a 01 scam and that function looks like this s s shape function.
+Like i'm driving.
+Like that.
+Okay.
+You can flaunt it if you haven't got off of one by one for the e to the x.
+So by 012 wheel me and the function either exists or not.
+Okay which looks like this.
+This number looks like a probability.
+They're so now i can estimate probability of b given w using this sort of.
+And this is nothing but what you probably have seen the logistic regression.
+Okay you understand regression right where you take this and saying okay.
+From this and i adjust my weight so that my edited minimum.
+Netstandard aggression.
+Remind me of regression the boys that are x.
+And that adults like that.
+And i want to fit a curve.
+Mx plus b for example in straight line.
+Estimate the m and b that means the slope of the line and the intercept.
+You can move this line anywhere you arms and the m&b will change but you weren't back line that minimizes the sum of the distances from each of these points the line.
+So you want back line that minimizes that distance.
+Cumulative distance.
+And that's the old aggression like this is something.
+Ignition assembly give me such a line with m&b set such that the sum of the distances from the points to that particular line is minimized.
+That's exactly what we're done here it is essentially said give me a combination of rated features such that.
+The error prediction error is minimized.
+Okay and we use this.
+Washing function everything between in 201 range.
+Has the providence tomato.
+United go to faster.
+I'll give you a lift minutes to sinking.
+Is there something that determines the number of features i have.
+Adjust the features as one option you reduce overfitting you can have as many features.
+But if two models and 1 + m2 this uses 20 features and its uses five features.
+But the prediction.
+Is the same flixster accuracy of these two models of the same.
+Unattested.
+Then which one would you pick.
+The one with the 20 features.
+William.
+Are enough considered more options covered my area.
+Is the better model.
+About the rest of the week.
+What would models are predicting the same test accuracy.
+Now i think about it like in the house value example if i had only three features that are as good as 55 other features.
+Which one would you pick okay okay thank you.
+Okay so.
+You get that.
+Disposal setup your number of features features are combined with weights and there is a mechanism to learn these weights.
+Based on the prediction on these.
+On these tags is minimized.
+Just like in russian case.
+Adjust the weights eminem and b such that.
+The sum of the distances.
+Is minimized.
+I'm confused about the regression part here is it the same as a backpropagation.
+Okay.
+Adjusting these parameters.
+Is backpropagation.
+Like taking the derivatives of hurt and passing the derivatives down.
+Do the layers of a human network is back.
+Ghost hunt the same thing with two no thank you.
+It's the the process of adjusting is backpropagation this aggression is the whole concept of sitting at 9.
+To a bunch of funny back from vacation is one strategy of regression.
+Okay okay okay.
+Okay like you know this this is one line right i could have gone another line it could have gone that way.
+Any problem this way this could be another line.
+And each one has a different slope and intercept.
+Well, which one should you choose.
+And that mechanism is driven by.
+Backpropagation.
+Questions so far.
+Absolutely.
+Could you have an example of how this can actually be applied directly to the study of that rodriguez.
+How what is act like this is a plight natural language determine the future that you're looking for all i'm thinking especially about languages like chinese character system.
+Yeah so this set of features here.
+Is typical electricity modeling expert domain expert.
+Whether this is going to be a token.
+You know i'm not.
+Like in this case but example is let's pretend that this was chinese the word features i can draw a boundary here.
+Making an f and a and a boundary here between t.
+Eat would become at work.
+Determining which bear to draw boundaries a segmentation problem very much like finding our part of speech is a.
+Based on your intuition about the problem.
+The band what should they lock cord be watched by the right word be ending examples.
+And so you can generate any number of such features either manually or automatically generate them to temperature patterns.
+Okay.
+And then ask the learning mechanism to determine the weights and some of the food.
+Because they don't contribute to the objective function of minimizing.
+You may have generator 10000 pictures but only 10 features.
+Okay so it's just like going with solving the phone based on the data that you're dealing with its design the features but the date of those features get wager.
+Okay okay.
+Then the way to go to become zero.
+If you wanted to know what features were being used is that where you would need to do some sort of feature importance algorithm or something or what they're going to tell you just right off the bat what was dropped.
+You have to basically see while you can either do an ablation which is to drop certain features and there is the model going to predict the same of the same accuracy and then you can say about the 23 tomorrow.
+The 15 features.
+Appalachian study or you can go what is supposed.
+Eastpointe swear to be fit by a not a linear function but but a cubic function.
+960 x cubed + bx squared + bx + d.
+That's a cubic function right.
+And so you have weights a b c and d.
+And you can get the relative importance of each of these when you fit that serve cubic function.
+And that might tell you i'll let you know this feature.
+Is much more important than this feature.
+I provided all of them are in the same dynamic range.
+So you can compare those features based on the way to the.
+So i have about 15 minutes left just wanted to.
+It wasn't certain topics.
+Do re papers about 10% in my class.
+Like some of you haven't i think and those who haven't pictopix please do so.
+And those who have fake topics.
+Please distribute 102 paper so the rest of the class can start reading and maybe next class we can start talking about it.
+One of your family leave the discussion.
+Okay let's make sense will be notified in advance for the next topics of that the people to sign for it come prepared.
+You know i don't know if that scene is visible through your phone.
+We had a google sheets.
+What is ecchi.
+Next.
+Serenity lane.
+Mean.
+So you folks and freaked out topix.
+Excellent.
+What are the devices you know put some papers along with the paper topic.
+A link to.
+Neighbors.
+I'm just a quick question are the papers collaborative as well the presentations are more just be project.
+And collaboratively discovered.
+The comprehensive coverage of the topic because obviously you can cover more than 1% bright.
+That's the idea here so we can.
+Make them have these topics you have papers.
+And this is bad as i think it gets sticky is folks have to order yourself in some.
+And we can start it.
+And say it's from next class on we have.
+Paper discussion.
+The second half of it.
+Okay now.
+Paper and project can be compared to the other so that's part of your literature survey of your project you could be reading those papers and make sense to just say okay.
+That's so that you don't w working.
+So coupling is wednesday so i can offer example papers.
+The present.
+And support and that will help towards your project.
+Does make sense life easy.
+Okay no i want all of you to the.
+Figure out how we'll get there and when you're going to present it's up to you..
+Look like now.
+Everybody go add the the column for a date.
+In and do pickled projects again i had something again don't need to be constrained by that.
+Okay. sometimes you know.
+You guessed a lot about that myself.
+So pick whatever projects that you would like to pursue and.
+Fordham on here.
+Okay questions anybody anything.
+Nakia.
+You want to change expectations.
+Lynn martinez since you're working on question answer.
+Okay yeah sure.
+I can find some papers on that in and into the presentation on that i i know i'm working with sarah on the project so we're still kind of up in the air about what the project is going to be on.
+So i guess he had his links to papers.
+Thanks for paper.
+And.
+Not only the presenters but also the rest of the class should be reading those papers ahead of time.
+It's not just inside discussion it's not.
+As a present thing and we're all listening.
+Questions clarifications anything that in a glass a few minutes for the class.
+This topic that be covered.
+Any any parts any changes we should make that is the speed of the class and the project.
+And i talked to make it convenient.
+There's no constraint that it has to be the same.
+Everlasting you're going to the speed of the classes everybody comfortable.
+Should i speed it up even more.
+This is good i mean david.
+Any other topics that you would like to see color i mean i started with speech recognition and language modeling.
+And i have some notions of syntax and in arnold grammars.
+But i want to cover some of it maybe.
+But i don't know to what depth that was covered like today if you had seen i was modeling but maybe not the same light.
+Modeling some discussion around semantics after we covered the syntax for do you know today we covered this modeling and we touched untagging.
+Subsequent.
+And then look at the semantics.
+I would definitely be interested in modern syntax i think we took last semester was interesting but maybe wasn't entirely focused on.
+Modern techniques.
+Yeah i am not saying send text in the mystic center.
+Brickell.
+Any other adjustments p320 email me or real.
+Why is your opinion.
+And this is us based on what you want.
+Okay.
+If nobody's going to use this time to take it as an opportunity to make a brief advertisement for my paper topic.
+Multilingual grounded language is basically the intersection of gunter language learning which is the subject.
+Looking at non-linguistic data and trying to form conclusions about word choices for example if you see a picture of an elephant then you're going to look at it and it's going to be a photo and if there's the word elephant you can see it's an elephant and then you have the word and it's based on the definition that is not based in the natural language based in your view of senior and then give the most languages that you can use that as a way to definitely make the translation from english to chinese just by looking at the elephant in knowing that it is in fact an elephant.
+So that would kind of be the idea behind multi-angle grounded time with running.
+Lot of engineering automatic translation.
+It's basically that you're trying to find data that you have a photograph do you have some.
+You have grounded language learning potential and multiple languages.
+So you make the images the in terlingua right definitely definitely know that all of those words are on the same photograph and then if you can identify a photograph of a giraffe into newspapers.
+Looking forward to meeting.
+All right folks any other parting thoughts before we end today.
+Just to double-check i have added dm.
+Next week's class for our.
+Discussion i don't know if that's okay can we start as soon as next week.
+Is that okay for you guys william and meghan sorry i've visited before you make it a big paper party two days in a row.
+Thank you thank you for self-organizing there.
+I wanted to come down with a list of.
+Previous assignments.
+Black douglas boxer cell phone.
+Okay thank you and will see you next week then okay thank you thank you.
+Thank you.
