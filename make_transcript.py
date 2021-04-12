@@ -12,7 +12,7 @@ def get_transcript(path):
                               silence_thresh = sound.dBFS-14,
                               keep_silence=500
                               )
-    folder = AUDIO_FILE_NAME
+    folder = FOLDER_NAME
     
     if not os.path.isdir(folder):
         os.mkdir(folder)
